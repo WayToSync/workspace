@@ -1,0 +1,16 @@
+{
+  "private": true,
+  "name": "workspace-example",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "client": "SET NODE_OPTIONS=--openssl-legacy-provider && yarn workspace @fastify-solidity/client start",
+    "server": "SET NODE_OPTIONS=--openssl-legacy-provider && yarn workspace @fastify-solidity/server start",
+    "start": "concurrently --kill-others-on-fail \"yarn server\"  \"yarn client\""
+  },
+  "dependencies": {
+    "concurrently": "^6.3.0"
+  },
+  "packageManager": "yarn@3.1.0"
+}
